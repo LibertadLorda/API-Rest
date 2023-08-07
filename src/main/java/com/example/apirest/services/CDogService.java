@@ -57,10 +57,10 @@ public class CDogService {
     public String deleteDogById(int id){
         try{
             iDogRepository.deleteById(id);
-            return "Deleted" + id;
+            return "Deleted " + id;
         }
         catch(Exception error){
-            return "Can not be deleted" + error;
+            return "Can not be deleted " + error;
         }
     }
 }
