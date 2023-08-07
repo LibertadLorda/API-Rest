@@ -1,10 +1,9 @@
 package com.example.apirest.models;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Generated;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,9 +14,9 @@ import lombok.Setter;
 public class CDog {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true, nullable = false)
     private int id;
-
-    private int numberChip;
 
     private String name;
 
@@ -27,8 +26,8 @@ public class CDog {
 
     private String type;
 
-    public CDog(int numberChip, String name, int age, String gender, String type) {
-        this.numberChip = numberChip;
+    public CDog(int id, String name, int age, String gender, String type) {
+        this.id = id;
         this.name = name;
         this.age = age;
         this.gender = gender;
